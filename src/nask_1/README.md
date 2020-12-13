@@ -1,4 +1,4 @@
-# 汇编（asm）
+# 汇编初探（asm）
 
 ## 1、第一个汇编程序
 
@@ -55,7 +55,11 @@ if defined fileName (
 )
 ```
 
-### 1.2 涉及指令介绍
+### 1.2 运行 `imos01.img` 文件
+
+运行 `run.bat`，然后指定映像名字 `imos01`
+
+### 1.3 涉及指令介绍
 
 - `DB` data byte，汇编杀手锏
 
@@ -121,7 +125,11 @@ if defined fileName (
 
 运行 `asm.bat`，生成 `imos02.img`
 
-### 2.2 运行 `.img` 文件
+### 2.2 运行 `imos02.img` 文件
+
+运行 `run-imos02.bat`
+
+补充：或者运行 `run.bat`，然后指定映像名字 `imos02`
 
 ```bat
 @echo off
@@ -136,7 +144,8 @@ copy %imgFile% %tolsetPath%\z_tools\qemu\fdimage0.bin
 - `imgFile` `.img` 文件名
 - `tolsetPath` 工具包路径
 
+### 2.3 涉及指令介绍
 
-
-
-
+- `DB` data byte 可以直接指定字符串，汇编会自动查找字符对应编码，再一个字节一个字节排列起来
+- `DW` data word 16位，也就是2个字节
+- `DD` data double-world 32位，也就是4个字节
