@@ -6,9 +6,9 @@
 
 - 操作系统：Windows
 
-- [Binary Editor 二进制编辑器](./backup/Bz1621.zip)
+- [Binary Editor 二进制编辑器](./doc/Bz1621.zip)
 
-- [tolset 工具包](./backup/tolset.zip)
+- [tolset 工具包](./doc/tolset.zip)
 
 ---
 
