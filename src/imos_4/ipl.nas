@@ -52,7 +52,7 @@ fin:
 
 msg:
 		DB		0x0a, 0x0a		; 换行2次
-		DB		"Hello World! by amos.wang imos03"
+		DB		"Hello World! by amos.wang imos04"
 		DB		0x0a			; 换行
 		DB		0
 

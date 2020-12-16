@@ -17,6 +17,7 @@
 1. [汇编初探](./src/imos_1/)
 2. [汇编学习](./src/imos_2/)
 3. [制作启动区](./src/imos_3/)
+4. [Makefile入门](./src/imos_4/)
 
 ---
 
