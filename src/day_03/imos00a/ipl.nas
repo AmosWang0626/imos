@@ -7,13 +7,13 @@
 
 	JMP	entry
 	DB	0x90
-	DB	"IMOSAMOS"		; 启动区名称（8字节）
+	DB	"IMOS-IPL"		; 启动区名称（8字节）
 	DW	512				; 每个扇区（sector）大小（must 512字节）
 	DB	1				; 簇（cluster）的大小（must 1个扇区）
 	DW	1				; FAT的起始位置（一般从第一个扇区开始）
 	DB	2				; FAT的个数（must 2）
 	DW	224				; 根目录大小（一般设成224）
-	DW	2880			; 该磁盘的大小（must 2880扇区）
+	DW	2880			; 该磁盘的大小（must 2880扇区 80柱面*18扇区*2磁头）
 	DB	0xf0			; 磁盘种类（must 0xf0）
 	DW	9				; FAT的长度（must 9扇区）
 	DW	18				; 1个磁道（track）有几个扇区（must 18）
@@ -22,7 +22,7 @@
 	DD	2880			; 重写一次磁盘大小
 	DB	0,0,0x29		; 未知，固定
 	DD	0xffffffff		; 卷标号码
-	DB	"IMOSAMOS   "	; 磁盘名称（11字节）
+	DB	"IMOS-AMOS  "	; 磁盘名称（11字节）
 	DB	"FAT12   "		; 磁盘格式（8字节）
 	RESB	18			; 先空出18字节
 
