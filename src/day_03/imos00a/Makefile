@@ -1,8 +1,12 @@
-IMG_NAME  = imos04.img
-TOOL_PATH = ../../../tolset/z_tools/
-MAKE      = $(TOOL_PATH)make.exe -r
-NASK      = $(TOOL_PATH)nask.exe
-EDIMG     = $(TOOL_PATH)edimg.exe
+IMG_NAME  = imos00a.img
+TOOLPATH  = ../../../tolset/z_tools/
+MAKE      = $(TOOLPATH)make -r
+NASK      = $(TOOLPATH)nask.exe
+
+# 这两个路径不能用 TOOLPATH 原因未知
+QEMU      = ..\..\..\tolset\z_tools\qemu
+FDIMAGE   = ..\..\..\tolset\z_tools\fdimage0.bin
+
 
 default :
 	$(MAKE) img
@@ -13,7 +17,7 @@ ipl.bin : ipl.nas Makefile
 
 # 核心步骤-构建系统镜像
 $(IMG_NAME) : ipl.bin Makefile
-	$(EDIMG)   imgin:$(TOOL_PATH)fdimg0at.tek \
+	$(TOOLPATH)edimg.exe   imgin:$(TOOLPATH)fdimg0at.tek \
 	wbinimg src:ipl.bin len:512 from:0 to:0 \
 	imgout:$(IMG_NAME)
 
@@ -29,8 +33,8 @@ img :
 # 运行
 run :
 	$(MAKE) img
-	copy $(IMG_NAME) $(TOOL_PATH)qemu/fdimage0.bin
-	$(MAKE) -C $(TOOL_PATH)qemu
+	copy $(IMG_NAME) $(FDIMAGE)
+	$(MAKE) -C $(QEMU)
 
 clean :
 	-del ipl.bin
@@ -38,5 +42,5 @@ clean :
 
 # 只保留原文件
 src_only :
-	..\..\..\tolset\z_tools\make.exe -i clean
+	$(MAKE) clean
 	-del $(IMG_NAME)
